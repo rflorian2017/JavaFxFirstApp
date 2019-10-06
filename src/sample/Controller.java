@@ -69,6 +69,16 @@ public class Controller {
     public void openLoginWindow(ActionEvent actionEvent) {
         showClosingDialog();
         tabPane.getTabs().add(tabLogin);
+        borderPane.getChildren().forEach(node -> {
+            if(node instanceof TabPane ) {
+                for (Tab tab: ((TabPane) node).getTabs()
+                     ) {
+                    if(tab.getStyleClass().equals("tabCss")) {
+                        System.out.println(tab.getText());
+                    }
+                }
+            }
+        });
 //        for (Node node:borderPane.getChildren()) {
 //            if(node instanceof TabPane ) {
 //                for (Tab tab: ((TabPane) node).getTabs()
