@@ -89,6 +89,7 @@
               <MenuItem fx:id="mnuItemLogin" mnemonicParsing="false" onAction="#openLoginWindow" text="Login" />
                   <MenuItem fx:id="mnuItemLogout" mnemonicParsing="false" onAction="#logoutUser" text="Logout" />
                   <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem fx:id="mnuswitch" mnemonicParsing="false" onAction="#switchWindow" text="switch" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">

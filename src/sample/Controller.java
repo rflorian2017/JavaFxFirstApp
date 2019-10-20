@@ -2,7 +2,10 @@ package sample;
 
 import constants.Constants;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -10,7 +13,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -134,5 +139,22 @@ public class Controller {
         else {
             // do nothing
         }
+    }
+
+    public void switchWindow(ActionEvent actionEvent) throws IOException {
+        MenuItem m = (MenuItem) actionEvent.getSource();
+        while (m.getParentPopup() == null) {
+            m = m.getParentMenu();
+        }
+
+        Scene s = m.getParentPopup().getOwnerWindow().getScene();
+        Parent tableViewParent = FXMLLoader.load(getClass().getResource("switch.fxml"));
+        Scene tableViewScene = new Scene(tableViewParent);
+
+        //This line gets the Stage information
+        Stage window = (Stage) s.getWindow();
+
+        window.setScene(tableViewScene);
+        window.show();
     }
 }
